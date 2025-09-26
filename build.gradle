@@ -8,11 +8,7 @@ group = 'kr.co.sboard'
 version = '0.0.1-SNAPSHOT'
 description = 'sboard'
 
-java {
-    toolchain {
-        languageVersion = JavaLanguageVersion.of(21)
-    }
-}
+
 
 configurations {
     compileOnly {
