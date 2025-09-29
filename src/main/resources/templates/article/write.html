@@ -1,11 +1,13 @@
-<th:block th:include="/article/_head.html"></th:block>
+<th:block th:include="~{/article/_head.html}"></th:block>
         <main id="article">
             <section class="write">
                 <nav>
                     <h1>글쓰기</h1>
                 </nav>
-                <form action="#">
-                    <table border="0">                        
+                <form th:action="@{/article/write}" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="writer" th:value="${#authentication.principal.user.usid}">
+
+                    <table border="0">
                         <tr>
                             <th>제목</th>
                             <td><input type="text" name="title" placeholder="제목을 입력하세요."/></td>
@@ -29,7 +31,7 @@
                     </table>
                     
                     <div>
-                        <a href="list.html" class="btn btnCancel">취소</a>
+                        <a th:href="@{/article/list}" class="btn btnCancel">취소</a>
                         <input type="submit" value="작성완료" class="btn btnComplete"/>
                     </div>
                 </form>
@@ -37,4 +39,4 @@
             </section>
         </main>
 
-<th:block th:include="/article/_tail.html"></th:block>
+<th:block th:include="~{/article/_tail.html}"></th:block>

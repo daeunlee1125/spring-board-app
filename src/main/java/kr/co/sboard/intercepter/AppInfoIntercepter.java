@@ -27,6 +27,8 @@ public class AppInfoIntercepter implements HandlerInterceptor {
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
         // 컨트롤러 수행 후 실행
         // Controller 요청 메서드의 model 참조에 추가적인 appInfo 모델 참조 수행
-        modelAndView.addObject("appInfo", appInfo);
+        if (modelAndView != null) {
+            modelAndView.addObject("appInfo", appInfo);
+        }
     }
 }

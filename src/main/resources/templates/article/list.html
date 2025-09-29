@@ -1,4 +1,4 @@
-<th:block th:include="/article/_head.html"></th:block>
+<th:block th:include="~{/article/_head.html}"></th:block>
 
         <main id="article">
             <section class="list">
@@ -43,9 +43,9 @@
                     <a href="#" class="next">다음</a>
                 </div>
 
-                <a href="write.html" class="btn btnWrite">글쓰기</a>
+                <a th:href="@{/article/write}" class="btn btnWrite">글쓰기</a>
                 
             </section>
         </main>
 
-<th:block th:include="/article/_tail.html"></th:block>
+<th:block th:include="~{/article/_tail.html}"></th:block>
