@@ -241,7 +241,7 @@
 				return;
 			}
 			
-			fetch('/jboard/user/check.do?col=hp&value='+value)
+			fetch(`/sboard/user/hp/${value}`)
 				.then(res => res.json())
 				.then(data => {
 					console.log(data);
