@@ -4,6 +4,10 @@ package kr.co.sboard.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.cglib.core.Local;
+
+import java.time.LocalDateTime;
 
 
 @Getter
@@ -26,6 +30,15 @@ public class Article {
     private int hit_cnt;
     private String writer;
     private String reg_ip;
-    private String wdate;
+    @CreationTimestamp
+    private LocalDateTime wdate;
+
+    // 추가 필드
+    @Transient
+    private String nick;
+
+    public void setNick(String nick) {
+        this.nick = nick;
+    }
 
 }

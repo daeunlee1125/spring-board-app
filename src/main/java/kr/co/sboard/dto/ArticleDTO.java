@@ -23,7 +23,14 @@ public class ArticleDTO {
     private int hit_cnt;
     private String writer;
     private String reg_ip;
+
+    public String getWdate() {
+        return wdate.substring(2, 16).replace("T", " ");
+    }
+
     private String wdate;
+
+
     
     // 파일 업로드
     private MultipartFile file1;
@@ -32,5 +39,8 @@ public class ArticleDTO {
     public List<MultipartFile> getFiles() {
         return List.of(file1, file2);
     }
+
+    // 추가 필드
+    private String nick;
 
 }
