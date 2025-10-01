@@ -8,6 +8,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.springframework.cglib.core.Local;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 
 @Getter
@@ -24,14 +25,18 @@ public class Article {
 
     private String cate;
     private String title;
+    private String writer;
     private String content;
     private int comment_cnt;
     private int file_cnt;
     private int hit_cnt;
-    private String writer;
     private String reg_ip;
     @CreationTimestamp
     private LocalDateTime wdate;
+
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "ano")
+    private List<File> fileList;
+
 
     // 추가 필드
     @Transient

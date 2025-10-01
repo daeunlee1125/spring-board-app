@@ -28,7 +28,7 @@
                     </tr>
                     <tr th:each="article, stat:${pageResponseDTO.dtoList}">
                         <td>[[${pageResponseDTO.startNo - stat.index}]]</td>
-                        <td><a th:href="@{/article/view}">[[${article.title}]] [ [[${article.comment_cnt}]] ]</a></td>
+                        <td><a th:href="@{/article/view(ano=${article.ano})}">[[${article.title}]] [ [[${article.comment_cnt}]] ]</a></td>
                         <td>[[${article.nick}]]</td>
                         <td>[[${article.wdate}]]</td>
                         <td>[[${article.hit_cnt}]]</td>

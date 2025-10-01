@@ -43,4 +43,6 @@ public class ArticleDTO {
     // 추가 필드
     private String nick;
 
+    private List<FileDTO> fileList;
+
 }

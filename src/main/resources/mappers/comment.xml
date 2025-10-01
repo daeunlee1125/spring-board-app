@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="kr.co.sboard.mapper.CommentMapper">
+
+    <insert id="insert">
+        INSERT INTO SB_COMMENT
+            (ano, content, writer, reg_ip, wdate)
+        VALUES (#{ano}, #{content}, #{writer}, #{reg_ip}, SYSDATE)
+
+    </insert>
+
+    <!--
+        알아서 DTO의 List로 반환해준다!
+        중요한 건 그 안의 dto 개체
+     -->
+    <select id="selectAll" resultType="kr.co.sboard.dto.CommentDTO">
+        select c.*, u.nick from SB_COMMENT c
+        join SB_USER u on c.writer=u.usid
+        where ano=#{ano}
+    </select>
+
+    <select id="select" resultType="kr.co.sboard.dto.CommentDTO">
+        select * from SB_COMMENT WHERE cno=#{cno}
+    </select>
+
+    <update id="update">
+        UPDATE SB_COMMENT SET content=#{content}
+        WHERE
+            cno=#{cno}
+    </update>
+
+    <delete id="delete">
+        DELETE FROM SB_COMMENT WHERE cno=#{cno}
+    </delete>
+</mapper>

@@ -35,7 +35,7 @@ public class ArticleRepositoryImpl implements ArticleRepositoryCustom {
     @Override
     public Page<Tuple> selectArticleAllForList(PageRequestDTO pageRequestDTO, Pageable pageable) {
 
-        List<com.querydsl.core.Tuple> tupleList = jpaQueryFactory.select(qArticle, qUser.nick)
+        List<com.querydsl.core.Tuple> tupleList = jpaQueryFactory.select(qArticle,  qUser.nick.as("nick"))
                 .from(qArticle)
                 .join(qUser)
                 .on(qArticle.writer.eq(qUser.usid))
@@ -62,7 +62,7 @@ public class ArticleRepositoryImpl implements ArticleRepositoryCustom {
         if (searchType.equals("title")){
             expression = qArticle.title.contains(keyword); // title like %keyword%
         }else if (searchType.equals("writer")){
-            // expression = qArticle.writer.contains(keyword);
+            expression = qUser.nick.contains(keyword);
         }else if (searchType.equals("content")){
             expression = qArticle.content.contains(keyword);
         }
