@@ -16,7 +16,7 @@ spring:
   datasource:
     driver-class-name: oracle.jdbc.driver.OracleDriver
     password: 1234
-    url: jdbc:oracle:thin:@//3.37.16.64:1522/XE
+    url: jdbc:oracle:thin:@//3.38.140.9:1522/XE
     username: sboard
   devtools:
     livereload:
